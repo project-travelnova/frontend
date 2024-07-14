@@ -1,0 +1,55 @@
+.hero-slider {
+    position: relative;
+    width: 100%;
+    max-width: auto; /* Adjust width as needed */
+    margin: auto;
+}
+
+.hero-slider .carousel .slide {
+    height: 500px; /* Set your desired height here */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+}
+
+.hero-slider .carousel .slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.hero-slider .carousel .legend {
+    position: absolute;
+    color: white;
+    font-size: 2.5em; /* Adjust as needed */
+    text-align: center;
+    padding: 0;
+    bottom: 60%;
+    background: none;
+}
+
+
+.hero-prev-button, .hero-next-button {
+    position: absolute;
+    top: 50%;
+    color: white;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 4em;
+}
+
+.hero-prev-button:hover, .hero-next-button:hover {
+    color: grey;
+}
+
+.hero-prev-button {
+    left: 10px;
+}
+
+.hero-next-button {
+    right: 10px;
+}

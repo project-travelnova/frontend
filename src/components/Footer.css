@@ -1,0 +1,38 @@
+/* src/components/Footer.css */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    text-align: left;
+}
+
+.footer-logo {
+    width: 200px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+    line-height: 30px;
+}
+
+.footer-section address, .footer-section p {
+    margin: 5px 0;
+    line-height: 30px;
+}

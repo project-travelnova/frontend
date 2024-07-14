@@ -1,0 +1,33 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    margin-left: 20px;
+}
+
+.popular-blogs {
+    flex: 2;
+}
+
+.by-province {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.by-province img {
+    width: 100%;
+    height: auto;
+}
+
+.by-province ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.by-province li {
+    margin: 10px 0;
+}
+
+h2{
+    margin: 18px;
+}

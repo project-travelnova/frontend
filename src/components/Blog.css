@@ -1,0 +1,55 @@
+.blog {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* Keeps a separator between posts */
+}
+
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.blog-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.blog-header p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.blog h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.blog p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+    min-height: 30%;
+    overflow: hidden;
+}
+
+.blog-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.blog-actions button {
+    padding: 5px 10px;
+    border: 1px solid #ccc; /* Adds a subtle border to buttons */
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blog-actions button:hover {
+    background-color: #e0e0e0;
+}

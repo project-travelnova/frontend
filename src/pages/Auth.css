@@ -1,0 +1,136 @@
+.auth-container {
+    display: block;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.auth-container h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    margin-bottom: 20px;
+}
+
+.auth-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.auth-container .submit {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 40%;
+}
+
+.auth-container button:hover {
+    background-color: #333;
+}
+
+.auth-container p a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Social Login one*/
+
+.auth-container .social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-container .social-login button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+}
+
+.google-button {
+    background-color: #db4437;
+    color: white;
+}
+
+.google-button:hover {
+    background-color: #c23321;
+}
+
+.facebook-button {
+    background-color: #3b5998;
+    color: white;
+}
+
+.facebook-button:hover {
+    background-color: #2d4373;
+}
+
+.email-button {
+    background-color: #555555;
+    color: white;
+}
+
+.email-button:hover {
+    background-color: #333333;
+}
+
+.auth-container p {
+    margin: 10px 0;
+}
+
+.auth-container p .signup-link, .auth-container p .login-link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-container p .signup-link:hover, .auth-container p .login-link:hover {
+    text-decoration: underline;
+}
+
+.auth-container .social-login button svg {
+    margin-right: 10px;
+}
