@@ -11,6 +11,8 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import SignupWithEmail from './pages/SignupWithEmail';
 import LoginWithEmail from './pages/LoginWithEmail';
+import BlogPage from './pages/BlogPage';
+import BlogDetails from './pages/BlogDetails';
 
 const App = () => {
     return (
@@ -26,6 +28,8 @@ const App = () => {
                     <Route path="/auth/success" element={<OAuthSuccess />} />
                     <Route path="/create-post" element={<ProtectedRoute element={CreateBlogPost} />} />
                     <Route path="/edit-profile" element={<ProtectedRoute element={EditProfile} />} />
+                    <Route path="/blog" element={<BlogPage />} />
+                    <Route path="/blog/:id" element={<BlogDetails />} /> {/* Add BlogDetails route */}
                 </Routes>
             </Router>
         </AuthProvider>

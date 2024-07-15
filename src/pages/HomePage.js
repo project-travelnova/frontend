@@ -16,6 +16,7 @@ const HomePage = () => {
     }, []);
 
     const truncateContent = (content, maxLength) => {
+        if (!content) return '';
         if (content.length <= maxLength) {
             return content;
         }
@@ -33,6 +34,7 @@ const HomePage = () => {
                         {blogs.map(blog => (
                             <Blog
                                 key={blog._id}
+                                id={blog._id} // Add id prop
                                 title={blog.title}
                                 description={truncateContent(blog.description, 300)}
                                 author={blog.author}
