@@ -4,6 +4,7 @@ import './Footer.css'; // We'll create this CSS file for styling
 import logo_1 from '../assets/logo_1.png'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -14,10 +15,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-section">
                     <ul>
-                        <li>Home</li>
-                        <li>About Us</li>
-                        <li>Terms & Condition</li>
-                        <li>Contact Us</li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/">About Us</Link></li>
+                        <li><Link to="/">Terms & Conditions</Link></li>
+                        <li><Link to="/">Contact Us</Link></li>
                     </ul>
                 </div>
                 <div className="footer-section">
@@ -26,10 +27,10 @@ const Footer = () => {
                         London ON N6E 2H6
                     </address>
                     <p>
-                        <FontAwesomeIcon icon={faPhone} /> (519) 452-4430
+                        <FontAwesomeIcon icon={faPhone} /> (111) 222-3333
                     </p>
                     <p>
-                        <FontAwesomeIcon icon={faEnvelope} /> guptaneha02525@gmail.com
+                        <FontAwesomeIcon icon={faEnvelope} /> travelnova4@gmail.com
                     </p>
                 </div>
             </div>

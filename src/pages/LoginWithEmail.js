@@ -28,6 +28,7 @@ const LoginWithEmail = () => {
         <div className="auth-container">
             <h1>Login with Email</h1>
             <form onSubmit={handleSubmit}>
+            <div className="form-group">
                 <input
                     type="email"
                     placeholder="Email"
@@ -35,6 +36,8 @@ const LoginWithEmail = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
+            </div>
+            <div className="form-group">    
                 <input
                     type="password"
                     placeholder="Password"
@@ -42,6 +45,7 @@ const LoginWithEmail = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+            </div>
                 <button type="submit" className='submit'>Login</button>
             </form>
             <p>

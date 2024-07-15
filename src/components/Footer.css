@@ -18,6 +18,15 @@
     text-align: left;
 }
 
+.footer-section a{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-section a:hover{
+    color: orange;
+}
 .footer-logo {
     width: 200px;
 }
