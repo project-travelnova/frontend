@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Blog from '../components/Blog';
 import './BlogPage.css';
+import Header from '../components/Header';
 
 const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -21,6 +22,8 @@ const BlogPage = () => {
     };
 
     return (
+        <div>
+        <Header />
         <div className="blog-container">
             <div className="blog-content">
                 <div className="blog-filter">
@@ -52,6 +55,7 @@ const BlogPage = () => {
                     <li>Newfoundland and Labrador</li>
                 </ul>
             </div>
+        </div>
         </div>
     );
 };

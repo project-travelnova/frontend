@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Auth.css';
+import Header from '../components/Header';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -11,6 +12,8 @@ const ForgotPassword = () => {
     };
 
     return (
+        <div>
+        <Header />
         <div className="auth-container">
             <h1>Forgot Password</h1>
             <form onSubmit={handleSubmit}>
@@ -23,6 +26,7 @@ const ForgotPassword = () => {
                 />
                 <button type="submit">Send</button>
             </form>
+        </div>
         </div>
     );
 };

@@ -1,5 +1,8 @@
 .blog-details-container {
+    display: block;
+    margin: 40px auto;
     padding: 20px;
+    width: 65%;
 }
 
 .blog-details-container h1 {
