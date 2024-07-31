@@ -7,12 +7,12 @@
     border-radius: 8px;
     background-color: #fff;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: system-ui,'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .auth-container h1 {
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .auth-container p {
@@ -21,9 +21,16 @@
 
 .auth-container .form-group {
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;;
 }
-
+.form-group input[type=email]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
 .auth-container label {
     display: block;
     margin-bottom: 5px;

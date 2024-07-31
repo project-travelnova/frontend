@@ -5,23 +5,24 @@
     background-color: #fff;
     display: block;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .create-blog-post h1 {
     text-align: center;
     font-size: 2em;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
 
 .create-blog-post input[type="text"],
-.create-blog-post textarea {
+.create-blog-post textarea{
     width: 100%;
     padding: 15px;
     border-width:  0 0 2px;
     font-size: 1em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .create-blog-post textarea {
@@ -30,13 +31,15 @@
 }
 
 .create-blog-post button {
-    display: block;
+    padding: 10px 20px;
     width: 20%;
+    display: block;
     margin: auto;
-    padding: 10px;
+    margin-top: 10px;
     background-color: black;
     color: white;
     border: none;
+    border-radius: 4px;
     font-size: 1em;
     letter-spacing: 0.1em;
     cursor: pointer;
@@ -45,4 +48,48 @@
 
 .create-blog-post button:hover {
     background-color: #333;
+}
+
+/* File upload styling */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.file-input-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+    background-color: #e9e9e9;
+}
+
+.file-input-container h3{
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-right: 20px;
+}
+
+
+.image-preview {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.image-preview span {
+    margin-right: 10px;
+}
+
+.remove-image-icon {
+    cursor: pointer;
+    color: red;
 }

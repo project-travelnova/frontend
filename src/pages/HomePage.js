@@ -11,7 +11,12 @@ const HomePage = () => {
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/blogs')
-            .then(response => setBlogs(response.data))
+            .then(response => {
+                // Sort blogs by date (assuming blogs are sorted in ascending order by default)
+                const sortedBlogs = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                // Get the latest 3 blogs
+                setBlogs(sortedBlogs.slice(0, 3));
+            })
             .catch(error => console.error(error));
     }, []);
 

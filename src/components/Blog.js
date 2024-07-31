@@ -9,9 +9,15 @@ const Blog = ({ id, title, description, author, date }) => {
             <p><strong>{author}</strong> - {new Date(date).toLocaleDateString()}</p>
             <p>{description}</p>
             <div className="blog-actions">
-                <button>Like</button>
-                <button>Comment</button>
-                <button>Share</button>
+                <button className="action-button">
+                    <i className="fas fa-thumbs-up"></i> Like
+                </button>
+                <button className="action-button">
+                    <i className="fas fa-comment"></i> Comment
+                </button>
+                <button className="action-button">
+                    <i className="fas fa-share"></i> Share
+                </button>
             </div>
         </div>
     );

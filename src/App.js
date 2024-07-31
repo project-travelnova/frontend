@@ -13,6 +13,10 @@ import SignupWithEmail from './pages/SignupWithEmail';
 import LoginWithEmail from './pages/LoginWithEmail';
 import BlogPage from './pages/BlogPage';
 import BlogDetails from './pages/BlogDetails';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import ContactUs from './pages/ContactUs';
+import TermsAndConditions from './pages/Terms&Conditions';
+
 
 const App = () => {
     return (
@@ -30,6 +34,8 @@ const App = () => {
                     <Route path="/edit-profile" element={<ProtectedRoute element={EditProfile} />} />
                     <Route path="/blog" element={<BlogPage />} />
                     <Route path="/blog/:id" element={<BlogDetails />} /> {/* Add BlogDetails route */}
+                    <Route path="/contact" element={<ContactUs />} />
+                    <Route path="/terms" element={<TermsAndConditions />} />
                 </Routes>
             </Router>
         </AuthProvider>

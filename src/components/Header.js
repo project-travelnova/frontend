@@ -14,7 +14,7 @@ const Header = () => {
         if (user) {
             navigate('/create-post');
         } else {
-            navigate('/login');
+            navigate('/login', { state: { message: ' '}});
         }
     };
 
@@ -30,14 +30,13 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="header-logo">
-                <img src={logo} alt="TravelNova Logo" />
-                <h1>TravelNova</h1>
-            </div>
+            <a href='/' className="header-logo">
+                <img src={logo} alt="TravelNova Logo" /><h1>TravelNova</h1>
+            </a>
             <nav className="header-nav">
-                <Link to="/">Home</Link>
-                <Link to="/blog">Blog</Link>
-                <button onClick={handleWriteClick} className="write-button">Write</button>
+                <Link to="/">HOME</Link>
+                <Link to="/blog">BLOG</Link>
+                <button onClick={handleWriteClick} className="write-button">ADD</button>
                 {user ? (
                     <div className="user-menu">
                         <button onClick={toggleDropdown} className="user-button">
@@ -51,9 +50,8 @@ const Header = () => {
                         )}
                     </div>
                 ) : (
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">LOGIN</Link>
                 )}
-                <Link to="/get-started" className="get-started">Get Started</Link>
             </nav>
         </header>
     );

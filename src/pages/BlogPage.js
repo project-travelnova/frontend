@@ -3,6 +3,7 @@ import axios from 'axios';
 import Blog from '../components/Blog';
 import './BlogPage.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -56,6 +57,7 @@ const BlogPage = () => {
                 </ul>
             </div>
         </div>
+        <Footer />
         </div>
     );
 };

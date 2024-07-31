@@ -1,8 +1,8 @@
 .blog-details-container {
     display: block;
-    margin: 40px auto;
-    padding: 20px;
     width: 65%;
+    padding: 40px;
+    align-items: center;
 }
 
 .blog-details-container h1 {
@@ -17,4 +17,49 @@
 .blog-content {
     font-size: 1.1em;
     line-height: 1.6;
+}
+
+
+.blog-details-container img{
+    object-fit: cover;
+    height: 500px;
+    width: 1200px;
+    object-position: center;
+}
+
+/*Comment styling*/
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.comment-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.comment-form button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
 }
