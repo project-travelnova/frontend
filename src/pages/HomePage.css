@@ -1,5 +1,6 @@
 .content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0;
     margin-left: 20px;
@@ -7,11 +8,13 @@
 
 .popular-blogs {
     flex: 2;
+    min-width: 60%;
 }
 
 .by-province {
     flex: 1;
     margin-left: 20px;
+    min-width: 30%;
 }
 
 .by-province img {
@@ -28,6 +31,44 @@
     margin: 10px 0;
 }
 
-h2{
+h2 {
     margin: 18px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .popular-blogs, .by-province {
+        margin-left: 0;
+        min-width: 100%;
+    }
+
+    .by-province {
+        margin-top: 20px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog-left, .blog-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: auto;
+    }
 }

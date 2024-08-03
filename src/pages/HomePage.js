@@ -44,6 +44,7 @@ const HomePage = () => {
                                 description={truncateContent(blog.description, 300)}
                                 author={blog.author}
                                 date={blog.date}
+                                image={blog.im}
                             />
                         ))}
                     </div>

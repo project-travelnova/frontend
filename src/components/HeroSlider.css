@@ -6,7 +6,7 @@
 }
 
 .hero-slider .carousel .slide {
-    height: 500px; /* Set your desired height here */
+    height: 300px; /* Set your desired height here */
     display: flex;
     align-items: center; /* Vertically center the content */
     justify-content: center; /* Horizontally center the content */
@@ -24,7 +24,7 @@
     font-size: 2.5em; /* Adjust as needed */
     text-align: center;
     padding: 0;
-    bottom: 60%;
+    bottom: 40%;
     background: none;
 }
 

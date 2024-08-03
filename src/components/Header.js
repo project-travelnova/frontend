@@ -40,7 +40,7 @@ const Header = () => {
                 {user ? (
                     <div className="user-menu">
                         <button onClick={toggleDropdown} className="user-button">
-                            {user.name} <FaCaretDown />
+                            Welcome, {user.name} <FaCaretDown />
                         </button>
                         {dropdownOpen && (
                             <div className="dropdown-menu">

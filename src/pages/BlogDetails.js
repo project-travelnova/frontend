@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './BlogDetails.css';
 import Header from '../components/Header';
@@ -13,6 +13,7 @@ const BlogDetails = () => {
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/blogs/${id}`)
@@ -47,6 +48,17 @@ const BlogDetails = () => {
         }
     };
 
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`http://localhost:5000/api/blogs/${id}`, {
+                headers: { Authorization: `Bearer ${user.token}` }
+            });
+            navigate('/');
+        } catch (err) {
+            console.error('There was an error deleting the blog post!', err);
+        }
+    };
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -66,9 +78,7 @@ const BlogDetails = () => {
                     {blog.description}
                 </div>
                 <div className="blog-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
+                    <button onClick={handleDelete}>Delete</button>
                 </div>
                 <div className="comments-section">
                     <h3>Comments</h3>

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode}  from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import AuthContext from '../context/AuthContext';
 
 const OAuthSuccess = () => {
@@ -11,14 +11,16 @@ const OAuthSuccess = () => {
         const query = new URLSearchParams(window.location.search);
         const token = query.get('token');
         if (token) {
-            // Decode token to get user information
             const decodedToken = jwtDecode(token);
-            const user = { name: decodedToken.name, email: decodedToken.email }; // Adjust according to your token structure
+            console.log('Decoded Token:', decodedToken); // Log the entire decoded token
+            const user = {
+                name: decodedToken.name,
+                email: decodedToken.email
+            };
             login(user, token);
-            console.log(decodedToken.name)
             navigate('/');
         } else {
-            navigate('/login');
+            navigate('/');
         }
     }, [login, navigate]);
 

@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation} from 'react-router-dom';
 import './Auth.css';
 import { FaGoogle, FaFacebook, FaEnvelope } from 'react-icons/fa';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ const Login = () => {
     return (
         <div>
             <Header />
+        <div>
             <div className="auth-container">
             <h1>{message ? 'To add a post you need to login' : 'Already Member of TravelNova ?'}</h1>
             <div className="social-login">
@@ -37,6 +39,8 @@ const Login = () => {
                 Not a member yet? <Link to="/signup" className="signup-link">Sign Up</Link>
             </p>
         </div>
+        </div>
+        <Footer />
         </div>
         
     );

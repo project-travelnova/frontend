@@ -16,6 +16,7 @@ import BlogDetails from './pages/BlogDetails';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ContactUs from './pages/ContactUs';
 import TermsAndConditions from './pages/Terms&Conditions';
+import EditBlogPost from './pages/EditBlogPost';
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
                     <Route path="/blog/:id" element={<BlogDetails />} /> {/* Add BlogDetails route */}
                     <Route path="/contact" element={<ContactUs />} />
                     <Route path="/terms" element={<TermsAndConditions />} />
+                    <Route path="/edit-blog/:id" element={<ProtectedRoute element={EditBlogPost} />} /> {/* Add EditBlogPost route */}
                 </Routes>
             </Router>
         </AuthProvider>

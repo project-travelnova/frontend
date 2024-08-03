@@ -1,62 +1,70 @@
 .blog {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc; /* Keeps a separator between posts */
-}
-
-.blog-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    gap: 20px; /* Add space between left and right parts */
 }
 
-.blog-header h3 {
+.blog-left {
+    flex: 0 0 150px; /* Fix the width of the image container */
+}
+
+.blog-right {
+    flex: 1; /* Allow the right part to take the remaining space */
+}
+
+.blog-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.blog-right h3 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.blog-header p {
-    margin: 0;
+.blog-meta {
+    margin: 0 0 10px 0;
     font-size: 0.9em;
     color: #666;
 }
 
-.blog h2 {
-    margin: 10px 0;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.blog p {
-    margin: 10px 0;
+.blog-description {
+    margin: 0 0 10px 0;
     font-size: 1em;
     color: #333;
-    min-height: 30%;
     overflow: hidden;
 }
 
 .blog-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 10px; /* Add margin top for spacing */
+    justify-content: flex-start;
+    gap: 20px; /* Increased space between action buttons */
+    margin-top: 10px;
 }
 
 .action-button {
     padding: 5px 10px;
-    border: none;/* Adds a subtle border to buttons */
+    border: none;
     cursor: pointer;
     background-color: transparent;
-    transition: background-color 0.3s ease;
-    display: flex; /* Ensure the icon and text are aligned */
-    align-items: center; /* Center the icon and text vertically */
-    color: #333; /* Change text color to white */
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 1em;
 }
 
 .action-button:hover, .action-button i:hover {
-   color: orange; /* Darker shade of black on hover */
+    color: orange;
 }
 
 .action-button i {
-    margin-right: 5px; /* Add space between icon and text */
+    margin-right: 5px;
 }
