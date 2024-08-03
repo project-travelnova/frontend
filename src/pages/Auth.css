@@ -141,3 +141,9 @@
 .auth-container .social-login button svg {
     margin-right: 10px;
 }
+
+/*Error handling*/
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
