@@ -46,10 +46,12 @@
 }
 
 .comment-form textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     font-size: 1em;
     margin-bottom: 10px;
-    resize: vertical; /* Allow vertical resizing */
+    height: 100px;
+    resize: none; 
 }
 
 .comment-form button {

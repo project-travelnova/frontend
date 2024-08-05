@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './BlogDetails.css';
@@ -36,11 +36,13 @@ const BlogDetails = () => {
         }
 
         try {
+            console.log('Sending comment with token:', user.token); // Debug log
             const response = await axios.post(
                 `http://localhost:5000/api/comments/${blog._id}/comments`,
                 { text: comment },
                 { headers: { Authorization: `Bearer ${user.token}` } }
             );
+            console.log('Comment response:', response.data); // Debug log
             setComments([...comments, response.data]);
             setComment('');
         } catch (err) {
@@ -49,14 +51,18 @@ const BlogDetails = () => {
     };
 
     const handleDelete = async () => {
-        try {
-            await axios.delete(`http://localhost:5000/api/blogs/${id}`, {
-                headers: { Authorization: `Bearer ${user.token}` }
-            });
-            navigate('/');
-        } catch (err) {
-            console.error('There was an error deleting the blog post!', err);
+        if (!window.confirm('Are you sure you want to delete this blog post?')) {
+            return;
         }
+
+            try {
+                await axios.delete(`http://localhost:5000/api/blogs/${blog._id}`, {
+                    headers: { Authorization: `Bearer ${user.token}` }
+                });
+                navigate('/');
+            } catch (err) {
+                console.error('There was an error deleting the blog post!', err);
+            }
     };
 
     if (loading) {
@@ -78,7 +84,17 @@ const BlogDetails = () => {
                     {blog.description}
                 </div>
                 <div className="blog-actions">
-                    <button onClick={handleDelete}>Delete</button>
+                {user && user.name === blog.author && (
+                        <>
+                            <button onClick={() => navigate(`/edit-blog/${id}`)}>Edit</button>
+                            <button onClick={handleDelete}>Delete</button>
+                        </>
+                    )}
+                </div>
+                <div className="blog-actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                    <button>Share</button>
                 </div>
                 <div className="comments-section">
                     <h3>Comments</h3>

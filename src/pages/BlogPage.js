@@ -47,7 +47,7 @@ const BlogPage = () => {
                 </div>
                 <div className="blog-sidebar">
                     <h2>By Province</h2>
-                    <img src="https://via.placeholder.com/150" alt="Province" />
+                    <img src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=1890&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Province" />
                     <ul>
                         <li>Longest Coastline</li>
                         <li>Alberta</li>
