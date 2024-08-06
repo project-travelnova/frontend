@@ -17,6 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import ContactUs from './pages/ContactUs';
 import TermsAndConditions from './pages/Terms&Conditions';
 import EditBlogPost from './pages/EditBlogPost';
+import AboutUs from './pages/AboutUs';
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
                     <Route path="/contact" element={<ContactUs />} />
                     <Route path="/terms" element={<TermsAndConditions />} />
                     <Route path="/edit-blog/:id" element={<ProtectedRoute element={EditBlogPost} />} /> {/* Add EditBlogPost route */}
+                    <Route path="/about" element={<AboutUs />} /> {/* Add About Us route */}
                 </Routes>
             </Router>
         </AuthProvider>
