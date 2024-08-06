@@ -1,8 +1,19 @@
+// Blog.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 
 const Blog = ({ id, title, description, author, date, image }) => {
+
+    const handleShare = () => {
+        const url = `${window.location.origin}/blog/${id}`;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('URL copied to clipboard');
+        }).catch(err => {
+            console.error('Failed to copy URL: ', err);
+        });
+    };
+
     return (
         <div className="blog">
             {image && (
@@ -11,11 +22,15 @@ const Blog = ({ id, title, description, author, date, image }) => {
                 </div>
             )}
             <div className="blog-right">
+                {/* Blog title is a link that navigates to the blog details page */}
                 <h3><Link className="blog-title" to={`/blog/${id}`}>{title}</Link></h3>
+                {/* Blog meta information */}
                 <p className="blog-meta">
                     <strong>{author}</strong> - {new Date(date).toLocaleDateString()}
                 </p>
+                {/* Blog description */}
                 <p className="blog-description">{description}</p>
+                {/* Blog actions */}
                 <div className="blog-actions">
                     <button className="action-button">
                         <i className="fas fa-thumbs-up"></i> Like
@@ -23,7 +38,7 @@ const Blog = ({ id, title, description, author, date, image }) => {
                     <Link className="comment-link" to={`/blog/${id}`}><button className="action-button">
                         <i className="fas fa-comment"></i> Comment
                     </button></Link>
-                    <button className="action-button">
+                    <button className="action-button" onClick={handleShare}>
                         <i className="fas fa-share"></i> Share
                     </button>
                 </div>

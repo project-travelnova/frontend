@@ -5,6 +5,7 @@ import './BlogDetails.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AuthContext from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -64,6 +65,16 @@ const BlogDetails = () => {
                 console.error('There was an error deleting the blog post!', err);
             }
     };
+    
+    const handleShare = () => {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('URL copied to clipboard');
+        }).catch(err => {
+            console.error('Failed to copy URL: ', err);
+        });
+    };
+    
 
     if (loading) {
         return <p>Loading...</p>;
@@ -92,9 +103,15 @@ const BlogDetails = () => {
                     )}
                 </div>
                 <div className="blog-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
+                    <button className="action-button">
+                        <i className="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <Link className="comment-link" to={`/blog/${id}`}><button className="action-button">
+                        <i className="fas fa-comment"></i> Comment
+                    </button></Link>
+                    <button className="action-button" onClick={handleShare}>
+                        <i className="fas fa-share"></i> Share
+                    </button>
                 </div>
                 <div className="comments-section">
                     <h3>Comments</h3>
