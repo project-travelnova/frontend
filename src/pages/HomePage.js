@@ -33,9 +33,9 @@ const HomePage = () => {
             <Header />
             <main>
                 <HeroSlider />
-                <h2>Popular Blogs</h2>
+                <h2>Latest Blogs</h2>
                 <div className="content">
-                    <div className="popular-blogs">
+                    <div className="latest-blogs">
                         {blogs.map(blog => (
                             <Blog
                                 key={blog._id}

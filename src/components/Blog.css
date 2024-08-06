@@ -68,3 +68,7 @@
 .action-button i {
     margin-right: 5px;
 }
+
+.comment-link, .blog-title{
+    text-decoration: none;
+}

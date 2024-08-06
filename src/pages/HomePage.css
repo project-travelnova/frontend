@@ -6,7 +6,7 @@
     margin-left: 20px;
 }
 
-.popular-blogs {
+.latest-blogs {
     flex: 2;
     min-width: 60%;
 }
@@ -42,7 +42,7 @@ h2 {
         margin-left: 0;
     }
 
-    .popular-blogs, .by-province {
+    .latest-blogs, .by-province {
         margin-left: 0;
         min-width: 100%;
     }

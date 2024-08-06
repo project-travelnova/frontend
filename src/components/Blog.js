@@ -11,7 +11,7 @@ const Blog = ({ id, title, description, author, date, image }) => {
                 </div>
             )}
             <div className="blog-right">
-                <h3><Link to={`/blog/${id}`}>{title}</Link></h3>
+                <h3><Link className="blog-title" to={`/blog/${id}`}>{title}</Link></h3>
                 <p className="blog-meta">
                     <strong>{author}</strong> - {new Date(date).toLocaleDateString()}
                 </p>
@@ -20,9 +20,9 @@ const Blog = ({ id, title, description, author, date, image }) => {
                     <button className="action-button">
                         <i className="fas fa-thumbs-up"></i> Like
                     </button>
-                    <button className="action-button">
+                    <Link className="comment-link" to={`/blog/${id}`}><button className="action-button">
                         <i className="fas fa-comment"></i> Comment
-                    </button>
+                    </button></Link>
                     <button className="action-button">
                         <i className="fas fa-share"></i> Share
                     </button>

@@ -29,7 +29,6 @@ const BlogPage = () => {
                 <div className="blog-content">
                     <div className="blog-filter">
                         <h2>Explore</h2>
-                        <h2>Following</h2>
                     </div>
                     <div className="blog-list">
                         {blogs.map(blog => (
