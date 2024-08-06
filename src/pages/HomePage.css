@@ -27,6 +27,11 @@
     padding: 0;
 }
 
+.by-province a{
+    text-decoration: none;
+    color:black;
+}
+
 .by-province li {
     margin: 10px 0;
 }
@@ -51,6 +56,7 @@ h2 {
         margin-top: 20px;
     }
 
+    
     h2 {
         text-align: center;
     }

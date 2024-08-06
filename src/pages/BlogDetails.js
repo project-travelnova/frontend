@@ -94,7 +94,7 @@ const BlogDetails = () => {
                 <div className="blog-content">
                     {blog.description}
                 </div>
-                <div className="blog-actions">
+                <div className="blog-db">
                 {user && user.name === blog.author && (
                         <>
                             <button onClick={() => navigate(`/edit-blog/${id}`)}>Edit</button>

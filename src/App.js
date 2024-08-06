@@ -18,7 +18,7 @@ import ContactUs from './pages/ContactUs';
 import TermsAndConditions from './pages/Terms&Conditions';
 import EditBlogPost from './pages/EditBlogPost';
 import AboutUs from './pages/AboutUs';
-
+import TagFilterPage from './pages/TagFilterPage';
 
 const App = () => {
     return (
@@ -40,6 +40,7 @@ const App = () => {
                     <Route path="/terms" element={<TermsAndConditions />} />
                     <Route path="/edit-blog/:id" element={<ProtectedRoute element={EditBlogPost} />} /> {/* Add EditBlogPost route */}
                     <Route path="/about" element={<AboutUs />} /> {/* Add About Us route */}
+                    <Route path="/tags/:tag" element={<TagFilterPage />} /> {/* Add this route */}
                 </Routes>
             </Router>
         </AuthProvider>

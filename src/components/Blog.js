@@ -1,10 +1,8 @@
-// Blog.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 
-const Blog = ({ id, title, description, author, date, image }) => {
-
+const Blog = ({ id, title, description, author, date, image, tag }) => {
     const handleShare = () => {
         const url = `${window.location.origin}/blog/${id}`;
         navigator.clipboard.writeText(url).then(() => {
@@ -22,15 +20,12 @@ const Blog = ({ id, title, description, author, date, image }) => {
                 </div>
             )}
             <div className="blog-right">
-                {/* Blog title is a link that navigates to the blog details page */}
                 <h3><Link className="blog-title" to={`/blog/${id}`}>{title}</Link></h3>
-                {/* Blog meta information */}
                 <p className="blog-meta">
                     <strong>{author}</strong> - {new Date(date).toLocaleDateString()}
                 </p>
-                {/* Blog description */}
                 <p className="blog-description">{description}</p>
-                {/* Blog actions */}
+                {tag && <p className="blog-tag">Tag: {tag.name}</p>} {/* Display tag */}
                 <div className="blog-actions">
                     <button className="action-button">
                         <i className="fas fa-thumbs-up"></i> Like

@@ -77,6 +77,10 @@
     font-size: 0.9em;
 }
 
+.blog-sidebar a{
+    text-decoration: none;
+    color:black;
+}
 @media (max-width: 768px) {
     .blog-container {
         flex-direction: column; /* Stack elements vertically on smaller screens */

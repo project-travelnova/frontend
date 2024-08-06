@@ -19,6 +19,25 @@
     font-size: 1.1em;
     line-height: 1.6;
 }
+.blog-db{
+    margin: auto;
+    padding-top: 10px;
+}
+.blog-db button{
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    transition: color 0.3s ease;
+    display: inline-block;
+    color: white;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.blog-db button:hover{
+    background-color: #555;
+}
 
 .blog-details-container img {
     object-fit: cover;

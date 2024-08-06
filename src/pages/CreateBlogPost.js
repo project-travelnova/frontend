@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext';
 import './CreateBlogPost.css';
@@ -10,7 +10,16 @@ const CreateBlogPost = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image, setImage] = useState(null);
+    const [tags, setTags] = useState([]);
+    const [selectedTag, setSelectedTag] = useState('');
     const { user } = useContext(AuthContext);
+
+    useEffect(() => {
+        // Fetch tags from the backend
+        axios.get('http://localhost:5000/api/tags')
+            .then(response => setTags(response.data))
+            .catch(error => console.error('Error fetching tags:', error));
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,18 +32,20 @@ const CreateBlogPost = () => {
         if (image) {
             formData.append('image', image);
         }
+        formData.append('tag', selectedTag); // Append the selected tag
 
         try {
             await axios.post('http://localhost:5000/api/blogs', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                    Authorization: `Bearer ${user.token}` // Use the token from the user context
                 }
             });
             alert('Blog post published successfully!');
             setTitle('');
             setContent('');
             setImage(null);
+            setSelectedTag(''); // Reset tag
         } catch (error) {
             if (error.response && error.response.data) {
                 alert(error.response.data.message);
@@ -72,22 +83,32 @@ const CreateBlogPost = () => {
             <div className="create-blog-post">
                 <h1>Write Your Story</h1>
                 <div className="file-input-container">
-                        <h3>Upload Image</h3>
-                        <label className="file-input-label">
-                            <FaImage size={24} />
-                            <input
-                                type="file"
-                                onChange={handleFileChange}
-                                style={{ display: 'none' }}
-                            />
-                        </label>
-                        {image && (
-                            <div className="image-preview">
-                                <span>{image.name}</span>
-                                <FaTimes className="remove-image-icon" onClick={handleRemoveImage} />
-                            </div>
-                        )}
-                    </div>
+                    <h3>Upload Image</h3>
+                    <label className="file-input-label">
+                        <FaImage size={24} />
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            style={{ display: 'none' }}
+                        />
+                    </label>
+                    <select
+                        value={selectedTag}
+                        onChange={(e) => setSelectedTag(e.target.value)}
+                        required
+                    >
+                        <option value="" disabled>Select Tag</option>
+                        {tags.map(tag => (
+                            <option key={tag._id} value={tag._id}>{tag.name}</option>
+                        ))}
+                    </select>
+                    {image && (
+                        <div className="image-preview">
+                            <span>{image.name}</span>
+                            <FaTimes className="remove-image-icon" onClick={handleRemoveImage} />
+                        </div>
+                    )}
+                </div>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"

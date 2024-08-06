@@ -12,7 +12,6 @@ const EditBlogPost = () => {
     const { user } = useContext(AuthContext);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState(null);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/blogs/${id}`)

@@ -49,6 +49,19 @@
     background-color: #333;
 }
 
+.create-blog-post select{
+    display: inline-block;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+    margin-bottom: 10px; /* Add margin to create space in smaller screens */ 
+}
+
 /* File upload styling */
 .file-input-container {
     display: flex;
