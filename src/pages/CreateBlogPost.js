@@ -5,6 +5,7 @@ import './CreateBlogPost.css';
 import Header from '../components/Header';
 import { FaImage, FaTimes } from 'react-icons/fa'; // Import image and times icons from react-icons
 import Footer from '../components/Footer';
+import Alert from '../components/Alert'; // Import the Alert component
 
 const CreateBlogPost = () => {
     const [title, setTitle] = useState('');
@@ -13,6 +14,7 @@ const CreateBlogPost = () => {
     const [tags, setTags] = useState([]);
     const [selectedTag, setSelectedTag] = useState('');
     const { user } = useContext(AuthContext);
+    const [alert, setAlert] = useState({ message: '', type: '' }); // State for alert message
 
     useEffect(() => {
         // Fetch tags from the backend
@@ -41,7 +43,7 @@ const CreateBlogPost = () => {
                     Authorization: `Bearer ${user.token}` // Use the token from the user context
                 }
             });
-            alert('Blog post published successfully!');
+            setAlert({ message: 'Blog post published successfully!', type: 'success' });
             setTitle('');
             setContent('');
             setImage(null);
@@ -60,7 +62,7 @@ const CreateBlogPost = () => {
         if (file) {
             const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             if (!allowedTypes.includes(file.type)) {
-                alert('Invalid file type. Only jpg, jpeg, and png are allowed.');
+                setAlert({message: 'Invalid file type. Only jpg, jpeg, and png are allowed.', type:'error'});
                 e.target.value = null;
                 setImage(null);
             } else {
@@ -80,6 +82,7 @@ const CreateBlogPost = () => {
     return (
         <div>
             <Header />
+            {alert.message && <Alert message={alert.message} type={alert.type} onClose={() => setAlert({ message: '', type: '' })} />}
             <div className="create-blog-post">
                 <h1>Write Your Story</h1>
                 <div className="file-input-container">

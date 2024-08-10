@@ -29,7 +29,7 @@ const Login = () => {
                     <FaGoogle /> Sign in with Google
                 </button>
                 <button onClick={handleFacebookLogin} className="facebook-button">
-                    <FaFacebook /> Sign in with Meta
+                    <FaFacebook /> Sign in with Facebook
                 </button>
                 <button onClick={() => navigate('/login-email')} className="email-button">
                     <FaEnvelope /> Sign in with Email

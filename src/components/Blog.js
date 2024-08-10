@@ -1,18 +1,24 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
+import Alert from './Alert';
+
 
 const Blog = ({ id, title, description, author, date, image, tag }) => {
+    const [alert, setAlert] = useState({ message: '', type: '' }); // State for alert message
     const handleShare = () => {
         const url = `${window.location.origin}/blog/${id}`;
         navigator.clipboard.writeText(url).then(() => {
-            alert('URL copied to clipboard');
+            setAlert({message:'URL copied to clipboard', type:'success'});
         }).catch(err => {
             console.error('Failed to copy URL: ', err);
         });
     };
+    
 
     return (
+        <div>
+        {alert.message && <Alert message={alert.message} type={alert.type} onClose={() => setAlert({ message: '', type: '' })} />}
         <div className="blog">
             {image && (
                 <div className="blog-left">
@@ -38,6 +44,7 @@ const Blog = ({ id, title, description, author, date, image, tag }) => {
                     </button>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

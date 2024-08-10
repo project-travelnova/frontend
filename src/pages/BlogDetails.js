@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './BlogDetails.css';
@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AuthContext from '../context/AuthContext';
 import { Link } from 'react-router-dom';
+import Alert from '../components/Alert';
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -15,6 +16,8 @@ const BlogDetails = () => {
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [alert, setAlert] = useState({ message: '', type: '' });
+    const [confirmDelete, setConfirmDelete] = useState(false);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/blogs/${id}`)
@@ -37,13 +40,13 @@ const BlogDetails = () => {
         }
 
         try {
-            console.log('Sending comment with token:', user.token); // Debug log
+            console.log('Sending comment with token:', user.token);
             const response = await axios.post(
                 `http://localhost:5000/api/comments/${blog._id}/comments`,
                 { text: comment },
                 { headers: { Authorization: `Bearer ${user.token}` } }
             );
-            console.log('Comment response:', response.data); // Debug log
+            console.log('Comment response:', response.data);
             setComments([...comments, response.data]);
             setComment('');
         } catch (err) {
@@ -52,20 +55,18 @@ const BlogDetails = () => {
     };
 
     const handleDelete = async () => {
-        if (!window.confirm('Are you sure you want to delete this blog post?')) {
-            return;
+        try {
+            await axios.delete(`http://localhost:5000/api/blogs/${blog._id}`, {
+                headers: { Authorization: `Bearer ${user.token}` }
+            });
+            setAlert({ message: 'Blog post deleted successfully', type: 'success' });
+            navigate('/');
+        } catch (err) {
+            console.error('There was an error deleting the blog post!', err);
+            setAlert({ message: 'There was an error deleting the blog post', type: 'error' });
         }
-
-            try {
-                await axios.delete(`http://localhost:5000/api/blogs/${blog._id}`, {
-                    headers: { Authorization: `Bearer ${user.token}` }
-                });
-                navigate('/');
-            } catch (err) {
-                console.error('There was an error deleting the blog post!', err);
-            }
     };
-    
+
     const handleShare = () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {
@@ -74,7 +75,6 @@ const BlogDetails = () => {
             console.error('Failed to copy URL: ', err);
         });
     };
-    
 
     if (loading) {
         return <p>Loading...</p>;
@@ -87,6 +87,15 @@ const BlogDetails = () => {
     return (
         <div>
             <Header />
+            {alert.message && <Alert message={alert.message} type={alert.type} onClose={() => setAlert({ message: '', type: '' })} />}
+            {confirmDelete && (
+                <Alert
+                    message="Are you sure you want to delete this blog post?"
+                    type="confirm"
+                    onConfirm={handleDelete}
+                    onCancel={() => setConfirmDelete(false)}
+                />
+            )}
             <main className="blog-details-container">
                 <h1>{blog.title}</h1>
                 <p><strong>{blog.author}</strong> - {new Date(blog.date).toLocaleDateString()}</p>
@@ -95,10 +104,10 @@ const BlogDetails = () => {
                     {blog.description}
                 </div>
                 <div className="blog-db">
-                {user && user.name === blog.author && (
+                    {user && user.name === blog.author && (
                         <>
                             <button onClick={() => navigate(`/edit-blog/${id}`)}>Edit</button>
-                            <button onClick={handleDelete}>Delete</button>
+                            <button onClick={() => setConfirmDelete(true)}>Delete</button>
                         </>
                     )}
                 </div>

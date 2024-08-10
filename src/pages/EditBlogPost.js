@@ -5,6 +5,7 @@ import AuthContext from '../context/AuthContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './CreateBlogPost.css'; // Assuming you have similar styles for creating and editing blog posts
+import Alert from '../components/Alert';
 
 const EditBlogPost = () => {
     const { id } = useParams();
@@ -12,6 +13,7 @@ const EditBlogPost = () => {
     const { user } = useContext(AuthContext);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [alert, setAlert] = useState({ message: '', type: '' }); // State for alert message
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/blogs/${id}`)
@@ -31,16 +33,22 @@ const EditBlogPost = () => {
             await axios.put(`http://localhost:5000/api/blogs/${id}`, updatedBlog, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
-            alert('Blog post updated successfully');
-            navigate(`/blog/${id}`);
+            setAlert({ message: 'Blog post updated successfully', type: 'success' });
         } catch (error) {
             console.error('There was an error updating the blog post!', error);
+            setAlert({ message: 'There was an error updating the blog post!', type: 'error' });
         }
+    };
+
+    const handleAlertClose = () => {
+        setAlert({ message: '', type: '' });
+        navigate(`/blog/${id}`);
     };
 
     return (
         <div>
             <Header />
+            {alert.message && <Alert message={alert.message} type={alert.type} onClose={handleAlertClose} />}
             <main className="create-blog-post">
                 <h1>Edit Blog Post</h1>
                 <form onSubmit={handleSubmit}>

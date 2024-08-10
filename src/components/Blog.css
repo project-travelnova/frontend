@@ -72,3 +72,11 @@
 .comment-link, .blog-title{
     text-decoration: none;
 }
+
+.blog-right .blog-title{
+    color: black;
+}
+
+.blog-right, .blog-title:hover{
+    color:orange;
+}

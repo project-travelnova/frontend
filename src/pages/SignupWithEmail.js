@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Alert from '../components/Alert';
 
 const SignupWithEmail = () => {
     const [name, setName] = useState('');
@@ -12,6 +14,7 @@ const SignupWithEmail = () => {
     const [dob, setDob] = useState('');
     const [error, setError] = useState(''); // State variable for error message
     const navigate = useNavigate();
+    const [alert, setAlert] = useState({ message: '', type: '' }); // State for alert message
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,16 +25,21 @@ const SignupWithEmail = () => {
         const newUser = { name, email, password, dob };
         try {
             await axios.post('http://localhost:5000/api/auth/signup', newUser);
-            alert('Signup successful! Please login.');
-            navigate('/login');
+            setAlert({message:'Signup successful! Please login.', type:'success'});
         } catch (error) {
             console.error('There was an error signing up!', error);
         }
     };
 
+    const handleAlertClose = () => {
+        setAlert({ message: '', type: '' });
+        navigate('/login-email');
+    };
+
     return (
         <>
             <Header />
+            {alert.message && <Alert message={alert.message} type={alert.type} onClose={(handleAlertClose)} />}
             <div className="auth-container">
                 <h1>Create new Account</h1>
                 <p>Already Registered? <Link to="/login">Login</Link></p>
@@ -94,6 +102,7 @@ const SignupWithEmail = () => {
                     <button type="submit" className='submit'>Sign up</button>
                 </form>
             </div>
+            <Footer />
         </>
     );
 };

@@ -32,6 +32,13 @@
     color:black;
 }
 
+.by-province a:hover{
+    color: orange;
+}
+
+.by-province a::selection{
+    color:maroon;
+}
 .by-province li {
     margin: 10px 0;
 }

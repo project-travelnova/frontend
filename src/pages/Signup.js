@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Auth.css';
 import { FaGoogle, FaFacebook, FaEnvelope } from 'react-icons/fa';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -36,6 +37,7 @@ const Signup = () => {
                 Already Member? <Link to="/login" className="login-link">Log In</Link>
             </p>
         </div>
+        <Footer />
         </div>
     );
 };
