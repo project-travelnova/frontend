@@ -4,7 +4,6 @@ import Blog from '../components/Blog';
 import './BlogPage.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 
 const BlogPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -73,7 +72,7 @@ const BlogPage = () => {
                     </div>
                 </div>
                 <div className="blog-sidebar">
-                    <h3><a href="#" onClick={() => handleTagClick('')}>By Province</a></h3>
+                    <a href="#" onClick={() => handleTagClick('')}><h3>By Province</h3></a>
                     <ul>
                         {tags.map((tag) => (
                             <li key={tag._id}>

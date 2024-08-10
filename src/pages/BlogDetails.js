@@ -70,7 +70,7 @@ const BlogDetails = () => {
     const handleShare = () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {
-            alert('URL copied to clipboard');
+            setAlert({message:'URL copied to clipboard', type: 'success'});
         }).catch(err => {
             console.error('Failed to copy URL: ', err);
         });
@@ -139,7 +139,7 @@ const BlogDetails = () => {
                             placeholder="Write a comment..."
                             required
                         ></textarea>
-                        <button type="submit">Add Comment</button>
+                        <button type="submit" className='submit'>Add Comment</button>
                     </form>
                 )}
                 {!user && <p>You need to be logged in to comment.</p>}

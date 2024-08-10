@@ -31,7 +31,7 @@ const Blog = ({ id, title, description, author, date, image, tag }) => {
                     <strong>{author}</strong> - {new Date(date).toLocaleDateString()}
                 </p>
                 <p className="blog-description">{description}</p>
-                {tag && <p className="blog-tag">Tag: {tag.name}</p>} {/* Display tag */}
+                {tag && <p className="blog-tag">Tag: {tag.name}</p>}
                 <div className="blog-actions">
                     <button className="action-button">
                         <i className="fas fa-thumbs-up"></i> Like

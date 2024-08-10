@@ -36,9 +36,11 @@
     color: orange;
 }
 
-.by-province a::selection{
-    color:maroon;
+.by-province a.active, .by-province a:focus {
+    color: orange;
+    font-weight: bold;
 }
+
 .by-province li {
     margin: 10px 0;
 }

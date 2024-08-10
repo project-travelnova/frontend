@@ -66,8 +66,7 @@ const HomePage = () => {
                                 description={truncateContent(blog.description, 300)}
                                 author={blog.author}
                                 date={blog.date}
-                                image={blog.image}
-                                tag={blog.tag?.name} // Assuming tag is populated
+                                image={blog.image} // Assuming tag is populated
                             />
                         ))}
                     </div>

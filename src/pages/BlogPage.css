@@ -1,5 +1,5 @@
 .blog-container {
-    display: flex; /* Set to flex to align items horizontally */
+    display: flex;
     justify-content: space-between;
     padding: 20px;
 }
@@ -49,11 +49,10 @@
 }
 
 .blog-sidebar {
-    flex: 1; /* Add flex to ensure it takes up appropriate space */
+    flex: 1;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #fff;
 }
 
 .blog-sidebar h2 {
@@ -77,13 +76,23 @@
     font-size: 0.9em;
 }
 
-.blog-sidebar a{
+.blog-sidebar a {
     text-decoration: none;
-    color:black;
+    color: black;
 }
+
+.blog-sidebar a:hover {
+    color: orange;
+}
+
+.blog-sidebar a.active, .blog-sidebar a:focus {
+    color: orange;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     .blog-container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
+        flex-direction: column;
         padding: 10px;
     }
 
@@ -97,7 +106,7 @@
     }
 
     .blog-filter {
-        flex-direction: column; /* Stack filter elements vertically */
+        flex-direction: column;
         gap: 10px;
     }
 }

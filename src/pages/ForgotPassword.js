@@ -24,7 +24,7 @@ const ForgotPassword = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <button type="submit">Send</button>
+                <button type="submit" className='submit'>Send</button>
             </form>
         </div>
         </div>
